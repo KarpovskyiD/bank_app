@@ -3,6 +3,8 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - 'bin/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
 
 # Commonly used screens these days easily fit more than 80 characters.
 Layout/LineLength:

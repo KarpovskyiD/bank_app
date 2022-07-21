@@ -1,0 +1,19 @@
+<%= render 'shared/transaction_buttons' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Initial Amount</th>
+      <th scope="col">Transfer</th>
+      <th scope="col">Partner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction["cached_amount"] %></td>
+        <td><%= transaction["amount"] %></td>
+        <td><%= transaction["partner"] %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

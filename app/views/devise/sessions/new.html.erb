@@ -1,0 +1,26 @@
+<main class="container general-main-wrap">
+  <div class="text-center">
+    <h3 class="general-login-title page_title">
+      Log In
+    </h3>
+  </div>
+
+  <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'general-form' } do |f| %>
+    <div class="form-group mb-30">
+      <%= f.label :email, "email", class: 'control-label input-label email-label' %>
+      <%= f.input_field :email, autofocus: true, autocomplete: "email", id: 'email', class: 'form-control', placeholder: "E-Mail" %>
+      <%= f.full_error :email, class: 'text-danger' %>
+    </div>
+    <div class="form-group mb-30">
+      <%= f.label :password, t('.password'), class: 'control-label input-label password-label' %>
+      <%= f.input_field :password, autocomplete: "current-password", id: 'password', class: 'form-control', placeholder: "Password" %>
+      <%= f.full_error :password, class: 'text-danger' %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "Submit", class: 'btn btn-default mb-20 submit-btn' %>
+    </div>
+  <% end %>
+  <p class="general-sign-text text-center">
+    <%= link_to t('.sign_up'), new_user_registration_path, class: 'in-gold-500 sign-up-link' %>
+  </p>
+</main>
