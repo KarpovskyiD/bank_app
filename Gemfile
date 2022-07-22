@@ -60,8 +60,9 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
   gem "ffaker"
-  gem "rspec-rails"
+  gem "rspec-rails",  "~> 4.0.1"
   gem "rubocop"
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :development do
@@ -80,4 +81,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "database_cleaner"
+  gem "capybara"
 end
