@@ -19,7 +19,7 @@ RSpec.describe TransactionDecorator, type: :decorator do
     end
 
     it 'returns sender email if current user is receiver' do
-      allow(transaction.h).to receive(:current_user) { receiver } 
+      allow(transaction.h).to receive(:current_user) { receiver }
       expect(transaction.partner_email).to eq(sender.email)
     end
   end
@@ -39,12 +39,12 @@ RSpec.describe TransactionDecorator, type: :decorator do
   describe '#cached_balance' do
     it 'returns sender balance in usd if current user is sender' do
       allow(transaction.h).to receive(:current_user).and_return(sender)
-      expect(transaction.cached_balance).to eq(10000)
+      expect(transaction.cached_balance).to eq(10_000)
     end
 
     it 'returns receiver balance in usd if current user is receiver' do
       allow(transaction.h).to receive(:current_user).and_return(receiver)
-      expect(transaction.cached_balance).to eq(10000)
+      expect(transaction.cached_balance).to eq(10_000)
     end
   end
 end

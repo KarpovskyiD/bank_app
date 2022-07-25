@@ -15,12 +15,12 @@
 ## Setup PostgreSQL users for development/test
 
 - Run `psql postgres`
-- Create database with name of your user (listed as db.username in Rails credentials);
-    - `create database usr;`
+- Create database with name of your user;
+    - `create database db;`
 - Create user
-    - `create usr digi with encrypted password 'YOUR PASWORD';`
+    - `create usr user_name with encrypted password 'YOUR PASWORD';`
 - Add ability to manage databases to created user
-    - `ALTER USER digi CREATEDB;`
+    - `ALTER USER user_name CREATEDB;`
 - Add user and password to credentials.yml.enc
   - `EDITOR='code --wait' rails credentials:edit`
   - database_user: usr
