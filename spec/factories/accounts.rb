@@ -3,5 +3,7 @@
 FactoryBot.define do
   factory :account do
     amount { 20_000 }
+
+    association :user
   end
 end

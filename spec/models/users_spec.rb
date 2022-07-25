@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) { create :user }
 
-  context 'check relations' do
-    it 'has many transactions' do
-      expect(subject).to have_many(:transactions)
-    end
+  describe 'columns' do
+    it { is_expected.to have_db_column(:email) }
+    it { is_expected.to have_db_column(:encrypted_password) }
+    it { is_expected.to have_db_column(:remember_created_at) }
+  end
 
-    it 'has one accounts' do
-      expect(subject).to have_one(:account)
-    end
+  context 'check relations' do
+    it { is_expected.to have_one(:account).dependent(:destroy) }
   end
 end

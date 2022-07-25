@@ -3,16 +3,16 @@
   <thead>
     <tr>
       <th scope="col">Initial Amount</th>
-      <th scope="col">Transfer</th>
+      <th scope="col">Amount</th>
       <th scope="col">Partner</th>
     </tr>
   </thead>
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= transaction["cached_amount"] %></td>
-        <td><%= transaction["amount"] %></td>
-        <td><%= transaction["partner"] %></td>
+        <td><%= transaction.cached_balance %></td>
+        <td><%= transaction.transaction_amount %></td>
+        <td><%= transaction.partner_email %></td>
       </tr>
     <%end%>
   </tbody>

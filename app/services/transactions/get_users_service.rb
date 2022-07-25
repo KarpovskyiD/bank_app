@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Transactions
-  class GetUsersTransactionsService
+  class GetUsersService
     attr_reader :user
 
     def initialize(user)
@@ -9,7 +9,7 @@ module Transactions
     end
 
     def call
-      user.transactions
+      user.account.transactions
     end
   end
 end
