@@ -1,0 +1,20 @@
+<%= render 'shared/transaction_buttons' %>
+<h2><%= t 'transactions.index.list' %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t 'transactions.index.balance' %></th>
+      <th scope="col"><%= t 'transactions.index.transaction_amount' %></th>
+      <th scope="col"><%= t 'transactions.index.partner_email' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.cached_balance %></td>
+        <td><%= transaction.transaction_amount %></td>
+        <td><%= transaction.partner_email %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
