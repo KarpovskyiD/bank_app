@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'registration of user process', type: :feature do
   it 'adds a new user' do
     visit root_path

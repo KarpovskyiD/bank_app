@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe TransactionDecorator, type: :decorator do
   subject(:transaction) do
     create(:transaction,

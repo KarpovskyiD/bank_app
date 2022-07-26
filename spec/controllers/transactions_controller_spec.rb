@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe TransactionsController, type: :controller do
   let(:user) { create(:user) }
   let(:partner) { create(:user) }
 
   before do
     sign_in(user)
-    allow(controller).to receive(:current_user).and_return(user)
     user.account.update!(amount: 10_000)
     partner.account.update!(amount: 10_000)
   end

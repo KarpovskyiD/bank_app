@@ -9,6 +9,7 @@ en:
       balance: Balance
       transaction_amount: Transaction amount
       partner_email: Partner email
+      list: List of transactions
     create:
       new_transaction: New transaction
   header:
@@ -20,3 +21,9 @@ en:
     new: Sign up
   sessions:
     new: Log in
+  forms:
+    errors:
+      not_enough_money: User doesn't have enough money
+      receiver_not_exists: Receiver not exists
+    money_sent: Money were sent
+

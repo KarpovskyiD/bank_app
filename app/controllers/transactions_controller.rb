@@ -8,12 +8,12 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    form = ::Transactions::CreateForm.new(permitted_create_params)
+    form = ::Transactions::CreateForm.new(form_params)
     if form.valid?
       Transactions::CreateNewService.new(current_user, permitted_create_params).call
-      redirect_to transactions_path, notice: 'Money were sent'
+      redirect_to transactions_path, notice: t('forms.money_sent')
     else
-      redirect_to new_transaction_path, alert: 'Transaction data is incorrect. Please check'
+      redirect_to new_transaction_path, alert: form.errors.messages
     end
   end
 
@@ -21,5 +21,10 @@ class TransactionsController < ApplicationController
 
   def permitted_create_params
     params.require(:transaction).permit(:email, :amount)
+  end
+
+  def form_params
+    params["transaction"].merge!(active_user: current_user.email, receiver: params["transaction"]["email"])
+    params.require(:transaction).permit(:email, :amount, :active_user, :receiver)
   end
 end
