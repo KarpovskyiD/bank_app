@@ -25,6 +25,6 @@
   - `EDITOR='code --wait' rails credentials:edit`
   - database_user: usr
   - database_password: password
-- Add information from credentials to 'config/database.yml'
-  - user: <%= Rails.application.credentials.database_user %>
-  - password: <%= Rails.application.credentials.database_password %>
+- Change name of file '.env_example' to '.env' and set your credentials
+  - DATABASE_USER=user
+  - DATABASE_PASSWORD=password

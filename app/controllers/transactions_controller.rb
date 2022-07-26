@@ -4,13 +4,17 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @transactions = Transactions::GetUsersService.new(current_user).call.map(&:decorate)
+    @transactions = TransactionDecorator.decorate_collection(Transactions::GetListService.new(current_user).call)
   end
 
   def create
-    Transactions::CreateNewService.new(current_user, permitted_create_params).call
-
-    redirect_to transactions_path, notice: 'Money were sent'
+    form = ::Transactions::CreateForm.new(permitted_create_params)
+    if form.valid?
+      Transactions::CreateNewService.new(current_user, permitted_create_params).call
+      redirect_to transactions_path, notice: 'Money were sent'
+    else
+      redirect_to new_transaction_path, alert: 'Transaction data is incorrect. Please check'
+    end
   end
 
   private

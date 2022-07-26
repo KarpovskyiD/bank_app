@@ -14,7 +14,7 @@ module Transactions
     def call
       return unless receiver.present? && expected_amount_positive?(amount)
 
-      create_transaction
+      execute_db_transaction
     end
 
     private
@@ -23,17 +23,21 @@ module Transactions
       (user.account.amount - amount).positive?
     end
 
-    def create_transaction
+    def execute_db_transaction
       ActiveRecord::Base.transaction do
-        Transaction.create(
-          amount: amount,
-          receiver_bank_account: receiver.account,
-          sender_bank_account: user.account,
-          cached_sender_amount: initial_amount(user),
-          cached_receiver_amount: initial_amount(receiver)
-        ).save
+        generate_account_transaction
         update_accounts
       end
+    end
+
+    def generate_account_transaction
+      Transaction.create(
+        amount: amount,
+        receiver_bank_account: receiver.account,
+        sender_bank_account: user.account,
+        cached_sender_amount: initial_amount(user),
+        cached_receiver_amount: initial_amount(receiver)
+      ).save
     end
 
     def initial_amount(user)

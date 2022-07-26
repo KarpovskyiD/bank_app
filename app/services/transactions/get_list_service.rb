@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Transactions
-  class GetUsersService
+  class GetListService
     attr_reader :user
 
     def initialize(user)

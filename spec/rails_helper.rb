@@ -70,6 +70,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.use_transactional_fixtures = true
   config.include Devise::Test::ControllerHelpers, type: :controller
 end

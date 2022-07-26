@@ -9,7 +9,7 @@ ruby '2.7.2'
 gem 'rails', '~> 7.0.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+gem 'sprockets-rails', '3.4.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -18,17 +18,16 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'importmap-rails'
+gem 'importmap-rails', '~> 1.1'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
+gem 'turbo-rails',  '~> 1.1'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem 'stimulus-rails'
+gem 'stimulus-rails', '~> 1.1'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
-
+gem 'jbuilder',  '~> 2.11'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
@@ -42,33 +41,34 @@ gem 'redis', '~> 4.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
+gem 'bootsnap', '~> 1.12', require: false
 
 # Use Sass to process CSS
-gem 'sassc-rails'
+gem 'sassc-rails',  '~> 2.1'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'devise'
-gem 'draper'
-gem 'pry'
-gem 'simple_form'
-gem 'webpacker'
+gem 'devise', '~> 4.8.1'
+gem 'draper', '~> 4.0.2'
+gem 'pry', '~> 0.14.1'
+gem 'simple_form', '~> 5.1'
+gem 'webpacker', '~> 5.4'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails'
-  gem 'ffaker'
+  gem 'dotenv-rails', '~> 2.7'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'ffaker', '~> 2.21'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'rubocop'
-  gem 'shoulda-matchers', '~> 3.0'
+  gem 'rubocop', '~> 1.31', require: false
+  gem 'shoulda-matchers', '~> 5.1'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
+  gem 'web-console', '~> 4.2'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -79,8 +79,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'capybara', '~> 3.37.1'
+  gem 'selenium-webdriver', '~> 4.3'
+  gem 'webdrivers', '~> 5.0'
 end
